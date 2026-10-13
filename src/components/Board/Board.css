@@ -1,0 +1,8 @@
+.board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f5f9;
+  background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
+}

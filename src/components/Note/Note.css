@@ -1,0 +1,52 @@
+.note {
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.note:active {
+  cursor: grabbing;
+}
+
+.note__text {
+  margin: 0;
+  font-size: 14px;
+  color: #334155;
+  overflow: hidden;
+  flex: 1;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.note__textarea {
+  flex: 1;
+  border: none;
+  background: transparent;
+  resize: none;
+  font-size: 14px;
+  color: #334155;
+  outline: none;
+  font-family: inherit;
+  cursor: text;
+}
+
+.note__resize-handle {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 12px;
+  height: 12px;
+  cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 50%, #94a3b8 50%);
+  border-radius: 0 0 4px 0;
+}
+
+.note--dragging {
+  opacity: 0.5;
+}
