@@ -19,6 +19,7 @@ function NoteComponent({ note, dispatch, boardRef }: NoteProps) {
       e.dataTransfer.setData('noteId', note.id);
       e.dataTransfer.effectAllowed = 'move';
       dispatch({ type: 'BRING_TO_FRONT', id: note.id });
+      // Defer opacity change so the browser captures the drag ghost before the note fades out.
       setTimeout(() => setIsDragging(true), 0);
     },
     [note.id, dispatch],
@@ -48,6 +49,7 @@ function NoteComponent({ note, dispatch, boardRef }: NoteProps) {
       const startHeight = note.height;
 
       const onMouseMove = (moveEvent: MouseEvent) => {
+        // Enforce minimum dimensions to prevent notes from becoming too small to interact with.
         const newWidth = Math.max(150, startWidth + moveEvent.clientX - startX);
         const newHeight = Math.max(
           150,

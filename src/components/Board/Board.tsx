@@ -16,7 +16,8 @@ export default function Board({ notes, dispatch, onCreateNote }: BoardProps) {
   // This handles note creation on the Board
   const handleDoubleClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      if (e.target !== boardRef.current) return; // dismiss double-click on anything else than the board
+      // Prevent note creation when double-clicking on a note instead of the board background.
+      if (e.target !== boardRef.current) return;
       const rect = boardRef.current.getBoundingClientRect();
       onCreateNote(e.clientX - rect.left, e.clientY - rect.top);
     },
